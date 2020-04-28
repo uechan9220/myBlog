@@ -5,10 +5,11 @@ import Page from '../components/Page'
 import Container from '../components/Container'
 import IndexLayout from '../layouts'
 
-const IndexPage = () => (
+const IndexPage = (props: any) => (
   <IndexLayout>
     <Page>
       <Container>
+        {console.log(props)}
         <h1>Hi people</h1>
         <p>Welcome to your new Gatsby site.</p>
         <p>Now go build something great.</p>

@@ -33,6 +33,7 @@ const IndexLayout: React.FC = ({ children }) => (
     `}
     render={(data: StaticQueryProps) => (
       <LayoutRoot>
+        {console.log(data)}
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[

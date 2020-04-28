@@ -2,14 +2,14 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'gatsby-starter-typescript-plus',
-    description: 'A starter kit for TypeScript-based Gatsby projects with sensible defaults.',
-    keywords: 'gatsbyjs, gatsby, javascript, sample, something',
+    title: 'Tech Blog',
+    description: 'moke is tech blog',
+    keywords: 'TypeScript, Javascript, FrontEnd, Blog, techBlog',
     siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com',
     author: {
-      name: 'Resi Respati',
-      url: 'https://twitter.com/resir014',
-      email: 'resir014@gmail.com'
+      name: 'Kazuya Uejima',
+      url: 'https://twitter.com/uechan9220',
+      email: 'k.uejima0922@gmail.com'
     }
   },
   plugins: [
@@ -18,6 +18,12 @@ module.exports = {
       options: {
         name: 'content',
         path: `${__dirname}/src/content`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/images`
       }
     },
     {
