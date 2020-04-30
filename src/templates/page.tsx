@@ -5,6 +5,7 @@ import Page from '../components/Page'
 import Container from '../components/Container'
 import IndexLayout from '../layouts'
 import Img from 'gatsby-image'
+import styled from 'styled-components'
 
 interface PageTemplateProps {
   data: {
@@ -33,6 +34,29 @@ interface PageTemplateProps {
   }
 }
 
+const MainTitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
+const Title = styled.h1``
+const ImageContainer = styled.div`
+  max-width: 20rem;
+  max-height: 20rem;
+  min-width: 20rem;
+  min-height: 20rem;
+`
+
+const TitleContainer = styled.div`
+  padding: 1rem;
+  border-bottom: 4px double #000;
+  text-align: center;
+`
+
+const MainContant = styled.div`
+  margin-top: 2rem;
+`
+
 const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
   let post = data.markdownRemark
   let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
@@ -40,10 +64,15 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
     <IndexLayout>
       <Page>
         <Container>
-          <h1>{data.markdownRemark.frontmatter.title}</h1>
-          <Img fluid={featuredImgFluid} />
-          {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+          <MainTitleContainer>
+            <ImageContainer>
+              <Img fluid={featuredImgFluid} />
+            </ImageContainer>
+            <TitleContainer>
+              <Title>{data.markdownRemark.frontmatter.title}</Title>
+            </TitleContainer>
+          </MainTitleContainer>
+          <MainContant dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
         </Container>
       </Page>
     </IndexLayout>
