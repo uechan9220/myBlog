@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 'Example Markdown page'
+featuredImage: ../images/partyParot.png
 ---
 
 Now we're writing in Markdown! Pretty nice, huh?

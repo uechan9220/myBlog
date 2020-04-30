@@ -4,6 +4,8 @@ import { graphql } from 'gatsby'
 import Page from '../components/Page'
 import Container from '../components/Container'
 import IndexLayout from '../layouts'
+import Img from 'gatsby-image'
+import { render } from 'react-dom'
 
 interface PageTemplateProps {
   data: {
@@ -22,22 +24,32 @@ interface PageTemplateProps {
       excerpt: string
       frontmatter: {
         title: string
+        featuredImage: {
+          childImageSharp: {
+            fluid: any
+          }
+        }
       }
     }
   }
 }
 
-const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => (
-  <IndexLayout>
-    <Page>
-      <Container>
-        <h1>{data.markdownRemark.frontmatter.title}</h1>
-        {/* eslint-disable-next-line react/no-danger */}
-        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-      </Container>
-    </Page>
-  </IndexLayout>
-)
+const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
+  let post = data.markdownRemark
+  let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+  return (
+    <IndexLayout>
+      <Page>
+        <Container>
+          <h1>{data.markdownRemark.frontmatter.title}</h1>
+          <Img fluid={featuredImgFluid} />
+          {/* eslint-disable-next-line react/no-danger */}
+          <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+        </Container>
+      </Page>
+    </IndexLayout>
+  )
+}
 
 export default PageTemplate
 
@@ -58,6 +70,13 @@ export const query = graphql`
       excerpt
       frontmatter {
         title
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
