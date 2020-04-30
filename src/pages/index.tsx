@@ -31,7 +31,7 @@ const IndexPage: React.FC<IndexProps> = ({ data }) => {
           {hoge.map((items: any, index: number) => {
             return (
               <>
-                <Link to={items.node.fields.slug}>
+                <Link to={items.node.fields.slug} key={index}>
                   <h1>{items.node.frontmatter.title}</h1>
                 </Link>
               </>
