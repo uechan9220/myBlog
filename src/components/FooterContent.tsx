@@ -15,7 +15,7 @@ interface FooterContentProps {
           title: string
           featuredImage: {
             childImageSharp: {
-              fluid: any
+              fixed: any
             }
           }
         }
@@ -63,12 +63,12 @@ const FooterContent: React.FC<FooterContentProps> = ({ data }) => {
       <CardContainer>
         {test.map((items: any, index: number) => {
           let post = items.node
-          let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+          let featuredImgFixed = post.frontmatter.featuredImage.childImageSharp.fixed
           return (
             <Link to={post.fields.slug} key={index}>
               <CenterContainer>
                 <ImageContainer>
-                  <Img fluid={featuredImgFluid} />
+                  <Img fixed={featuredImgFixed} />
                 </ImageContainer>
                 <TextContainer>
                   <p>{post.frontmatter.title}</p>

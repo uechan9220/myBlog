@@ -27,7 +27,7 @@ interface PageTemplateProps {
         title: string
         featuredImage: {
           childImageSharp: {
-            fluid: any
+            fixed: any
           }
         }
       }
@@ -42,7 +42,7 @@ interface PageTemplateProps {
             title: string
             featuredImage: {
               childImageSharp: {
-                fluid: any
+                fixed: any
               }
             }
           }
@@ -82,14 +82,14 @@ const Container = styled.div`
 const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
   let footerPost = data.allMarkdownRemark
   let post = data.markdownRemark
-  let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+  let featuredImgFixed = post.frontmatter.featuredImage.childImageSharp.fixed
   return (
     <IndexLayout>
       <Page>
         <Container>
           <MainTitleContainer>
             <ImageContainer>
-              <Img fluid={featuredImgFluid} />
+              <Img fixed={featuredImgFixed} />
             </ImageContainer>
             <TitleContainer>
               <Title>{data.markdownRemark.frontmatter.title}</Title>
@@ -124,14 +124,14 @@ export const query = graphql`
         title
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 336) {
-              ...GatsbyImageSharpFluid
+            fixed(width: 336) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
       }
     }
-    allMarkdownRemark(limit: 4, sort: {fields: [frontmatter___date], order: DESC}) {
+    allMarkdownRemark(limit: 4, sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           fields {
@@ -141,8 +141,8 @@ export const query = graphql`
             title
             featuredImage {
               childImageSharp {
-                fluid(maxWidth: 160) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 160) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }

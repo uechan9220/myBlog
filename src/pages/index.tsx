@@ -20,7 +20,7 @@ interface IndexProps {
             title: string
             featuredImage: {
               childImageSharp: {
-                fluid: any
+                fixed: any
               }
             }
           }
@@ -75,13 +75,13 @@ const IndexPage: React.FC<IndexProps> = ({ data }) => {
       <Container>
         {hoge.map((items: any, index: number) => {
           let post = items.node
-          let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+          let featuredImgFixed = post.frontmatter.featuredImage.childImageSharp.fixed
           return (
             <Card key={index}>
               <Link to={post.fields.slug}>
                 <CenterContainer>
                   <ImageContainer>
-                    <Img fluid={featuredImgFluid} />
+                    <Img fixed={featuredImgFixed} />
                   </ImageContainer>
                   <TextContainer>
                     <h1>{post.frontmatter.title}</h1>
@@ -108,8 +108,8 @@ export const query = graphql`
             title
             featuredImage {
               childImageSharp {
-                fluid(maxWidth: 336) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 336) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
