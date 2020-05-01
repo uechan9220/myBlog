@@ -5,6 +5,7 @@ import Page from '../components/Page'
 import IndexLayout from '../layouts'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { colors } from '../styles/variables'
 
 interface PageTemplateProps {
   data: {
@@ -53,10 +54,12 @@ const TitleContainer = styled.div`
 `
 
 const MainContant = styled.div`
-  margin-top: 2rem;
+  padding: 1rem;
 `
 
-const Container = styled.div``
+const Container = styled.div`
+  background-color: ${colors.white};
+`
 
 const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
   let post = data.markdownRemark
