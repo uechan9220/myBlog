@@ -8,7 +8,7 @@ const StyledPage = styled.div`
   flex: 1;
   position: relative;
   padding: ${dimensions.containerPadding}rem;
-  background-color: ${colors.ui.light}
+  background-color: ${colors.ui.light};
 `
 
 interface PageProps {

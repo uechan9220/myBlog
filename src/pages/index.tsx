@@ -41,7 +41,11 @@ const ImageContainer = styled.div`
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @media screen and (max-width: 416px) {
+    justify-content: center;
+  }
   justify-content: space-between;
+  padding: 0 1.5rem;
 `
 
 const Card = styled.div`
@@ -68,35 +72,33 @@ const IndexPage: React.FC<IndexProps> = ({ data }) => {
   let hoge: any = data.allMarkdownRemark.edges
   return (
     <IndexLayout>
-      <Page>
-        <Container>
-          {hoge.map((items: any, index: number) => {
-            let post = items.node
-            let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
-            return (
-              <Card key={index}>
-                <Link to={post.fields.slug}>
-                  <CenterContainer>
-                    <ImageContainer>
-                      <Img fluid={featuredImgFluid} />
-                    </ImageContainer>
-                    <TextContainer>
-                      <h1>{post.frontmatter.title}</h1>
-                    </TextContainer>
-                  </CenterContainer>
-                </Link>
-              </Card>
-            )
-          })}
-        </Container>
-      </Page>
+      <Container>
+        {hoge.map((items: any, index: number) => {
+          let post = items.node
+          let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+          return (
+            <Card key={index}>
+              <Link to={post.fields.slug}>
+                <CenterContainer>
+                  <ImageContainer>
+                    <Img fluid={featuredImgFluid} />
+                  </ImageContainer>
+                  <TextContainer>
+                    <h1>{post.frontmatter.title}</h1>
+                  </TextContainer>
+                </CenterContainer>
+              </Link>
+            </Card>
+          )
+        })}
+      </Container>
     </IndexLayout>
   )
 }
 
 export const query = graphql`
   query IndexQuery {
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           fields {
@@ -106,7 +108,7 @@ export const query = graphql`
             title
             featuredImage {
               childImageSharp {
-                fluid(maxWidth: 800) {
+                fluid(maxWidth: 336) {
                   ...GatsbyImageSharpFluid
                 }
               }
