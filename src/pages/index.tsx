@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import Page from '../components/Page'
 import IndexLayout from '../layouts'
 import Img from 'gatsby-image'
 
