@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 
 import styled from 'styled-components'
 import Img from 'gatsby-image'
@@ -45,6 +45,9 @@ const TextContainer = styled.div`
 const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @media screen and (max-width: 416px) {
+    justify-content: center;
+  }
   justify-content: space-between;
 `
 
@@ -62,18 +65,16 @@ const FooterContent: React.FC<FooterContentProps> = ({ data }) => {
           let post = items.node
           let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
           return (
-            <>
-              <Link to={post.fields.slug} key={index}>
-                <CenterContainer>
-                  <ImageContainer>
-                    <Img fluid={featuredImgFluid} />
-                  </ImageContainer>
-                  <TextContainer>
-                    <p>{post.frontmatter.title}</p>
-                  </TextContainer>
-                </CenterContainer>
-              </Link>
-            </>
+            <Link to={post.fields.slug} key={index}>
+              <CenterContainer>
+                <ImageContainer>
+                  <Img fluid={featuredImgFluid} />
+                </ImageContainer>
+                <TextContainer>
+                  <p>{post.frontmatter.title}</p>
+                </TextContainer>
+              </CenterContainer>
+            </Link>
           )
         })}
       </CardContainer>

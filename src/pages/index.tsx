@@ -74,8 +74,8 @@ const IndexPage: React.FC<IndexProps> = ({ data }) => {
             let post = items.node
             let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
             return (
-              <Card>
-                <Link to={post.fields.slug} key={index}>
+              <Card key={index}>
+                <Link to={post.fields.slug}>
                   <CenterContainer>
                     <ImageContainer>
                       <Img fluid={featuredImgFluid} />
