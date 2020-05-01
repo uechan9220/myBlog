@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 'Example Markdown page'
+date: '2020-01-01'
 featuredImage: ../images/partyParot.png
 ---
 

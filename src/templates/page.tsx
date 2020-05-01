@@ -6,6 +6,7 @@ import IndexLayout from '../layouts'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { colors } from '../styles/variables'
+import FooterContent from '../components/FooterContent'
 
 interface PageTemplateProps {
   data: {
@@ -27,6 +28,23 @@ interface PageTemplateProps {
         featuredImage: {
           childImageSharp: {
             fluid: any
+          }
+        }
+      }
+    }
+    allMarkdownRemark: {
+      edges: {
+        node: {
+          fields: {
+            slug: string
+          }
+          frontmatter: {
+            title: string
+            featuredImage: {
+              childImageSharp: {
+                fluid: any
+              }
+            }
           }
         }
       }
@@ -53,7 +71,7 @@ const TitleContainer = styled.div`
   text-align: center;
 `
 
-const MainContant = styled.div`
+const MainContent = styled.div`
   padding: 1rem;
 `
 
@@ -62,6 +80,7 @@ const Container = styled.div`
 `
 
 const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
+  let footerPost = data.allMarkdownRemark
   let post = data.markdownRemark
   let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
   return (
@@ -76,7 +95,8 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
               <Title>{data.markdownRemark.frontmatter.title}</Title>
             </TitleContainer>
           </MainTitleContainer>
-          <MainContant dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+          <MainContent dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+          <FooterContent data={footerPost} />
         </Container>
       </Page>
     </IndexLayout>
@@ -106,6 +126,25 @@ export const query = graphql`
           childImageSharp {
             fluid(maxWidth: 800) {
               ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    allMarkdownRemark(limit: 4, sort: {fields: [frontmatter___date], order: DESC}) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }

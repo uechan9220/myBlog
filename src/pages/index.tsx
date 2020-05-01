@@ -51,7 +51,7 @@ const Card = styled.div`
   justify-content: center;
   margin: 2rem 0 0 0;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  background-color: ${colors.white}
+  background-color: ${colors.white};
 `
 
 const CenterContainer = styled.div`
@@ -61,7 +61,7 @@ const CenterContainer = styled.div`
 `
 
 const TextContainer = styled.div`
-  padding: .5rem;
+  padding: 0.5rem;
 `
 
 const IndexPage: React.FC<IndexProps> = ({ data }) => {
@@ -96,7 +96,7 @@ const IndexPage: React.FC<IndexProps> = ({ data }) => {
 
 export const query = graphql`
   query IndexQuery {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
       edges {
         node {
           fields {
