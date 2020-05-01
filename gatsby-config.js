@@ -5,7 +5,7 @@ module.exports = {
     title: 'Tech Blog',
     description: 'moke is tech blog',
     keywords: 'TypeScript, Javascript, FrontEnd, Blog, techBlog',
-    siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com',
+    siteUrl: 'https://blog.moke.dev',
     author: {
       name: 'Kazuya Uejima',
       url: 'https://twitter.com/uechan9220',
@@ -54,7 +54,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com'
+        siteUrl: 'https://blog.moke.dev'
       }
     },
     'gatsby-plugin-emotion',
