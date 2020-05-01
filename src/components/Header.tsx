@@ -1,10 +1,9 @@
 import * as React from 'react'
-import styled from '@emotion/styled'
+import styled from 'styled-components'
 import { transparentize } from 'polished'
 import { Link } from 'gatsby'
 
 import { heights, dimensions, colors } from '../styles/variables'
-import Container from './Container'
 
 const StyledHeader = styled.header`
   height: ${heights.header}px;
@@ -13,7 +12,7 @@ const StyledHeader = styled.header`
   color: ${transparentize(0.5, colors.white)};
 `
 
-const HeaderInner = styled(Container)`
+const HeaderInner = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;

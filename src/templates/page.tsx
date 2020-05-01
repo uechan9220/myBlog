@@ -2,7 +2,6 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 
 import Page from '../components/Page'
-import Container from '../components/Container'
 import IndexLayout from '../layouts'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
@@ -56,6 +55,8 @@ const TitleContainer = styled.div`
 const MainContant = styled.div`
   margin-top: 2rem;
 `
+
+const Container = styled.div``
 
 const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
   let post = data.markdownRemark

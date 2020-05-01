@@ -2,8 +2,10 @@ import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Page from '../components/Page'
-import Container from '../components/Container'
 import IndexLayout from '../layouts'
+import Img from 'gatsby-image'
+
+import styled from 'styled-components'
 
 interface IndexProps {
   data: {
@@ -15,12 +17,43 @@ interface IndexProps {
           }
           frontmatter: {
             title: string
+            featuredImage: {
+              childImageSharp: {
+                fluid: any
+              }
+            }
           }
         }
       }
     }
   }
 }
+
+const ImageContainer = styled.div`
+  min-width: 20rem;
+  min-height: 20rem;
+  max-width: 20rem;
+  max-height: 20rem;
+`
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`
+
+const Content = styled.div`
+  width: 30rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+`
+
+const CenterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
 
 const IndexPage: React.FC<IndexProps> = ({ data }) => {
   let hoge: any = data.allMarkdownRemark.edges
@@ -29,12 +62,19 @@ const IndexPage: React.FC<IndexProps> = ({ data }) => {
       <Page>
         <Container>
           {hoge.map((items: any, index: number) => {
+            let post = items.node
+            let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
             return (
-              <>
-                <Link to={items.node.fields.slug} key={index}>
-                  <h1>{items.node.frontmatter.title}</h1>
+              <Content>
+                <Link to={post.fields.slug} key={index}>
+                  <CenterContainer>
+                    <ImageContainer>
+                      <Img fluid={featuredImgFluid} />
+                    </ImageContainer>
+                    <h1>{post.frontmatter.title}</h1>
+                  </CenterContainer>
                 </Link>
-              </>
+              </Content>
             )
           })}
         </Container>
@@ -53,6 +93,13 @@ export const query = graphql`
           }
           frontmatter {
             title
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
