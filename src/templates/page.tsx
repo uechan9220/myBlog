@@ -73,6 +73,72 @@ const TitleContainer = styled.div`
 
 const MainContent = styled.div`
   padding: 1rem;
+  h1 {
+    padding-bottom: 0.3em;
+    line-height: 1.2;
+    border-bottom: 2px solid #2f51b4;
+    position: relative;
+    padding-left: 18px;
+  }
+
+  h1:before {
+    background: #2f51b4;
+    content: '';
+    height: 28px;
+    width: 8px;
+    left: 0;
+    position: absolute;
+    top: 3px;
+  }
+
+  h2 {
+    padding-bottom: 0.3em;
+    line-height: 1.2;
+    /* border-bottom: 1px solid #2f51b4; */
+    position: relative;
+    padding-left: 18px;
+    /*margin-left: 16px;*/
+  }
+
+  h2:before {
+    background: #2f51b4;
+    content: '';
+    height: 20px;
+    width: 5px;
+    left: 0px;
+    position: absolute;
+    top: 3px;
+  }
+
+  h3 {
+    text-decoration: underline;
+  }
+
+  h4 {
+    text-decoration: underline dotted;
+  }
+
+  .gatsby-code-title {
+    display: block;
+    position: relative;
+    background: #272822;
+    width: 100%;
+    top: 10px;
+    border-top-left-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+  }
+
+  .gatsby-code-title span {
+    display: inline;
+    position: relative;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    color: #eee;
+    background: #777;
+    border-top-left-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+    padding: 3px;
+    top: 1px;
+  }
 `
 
 const Container = styled.div`

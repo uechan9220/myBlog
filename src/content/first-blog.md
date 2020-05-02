@@ -5,9 +5,9 @@ date: '2020-05-01'
 featuredImage: ../images/partyParot.png
 ---
 
-## ご挨拶
-今回Blogページを作りました。
-React + TypeScript + Gatsbyで作成させて頂きました。
+# ご挨拶
+
+今回 Blog ページを作りました。
+React + TypeScript + Gatsby で作成させて頂きました。
 
 デザイン等は気が向いたときにどんどん変えていこうと思っています。
-
