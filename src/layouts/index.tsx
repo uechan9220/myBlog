@@ -15,11 +15,17 @@ interface StaticQueryProps {
       title: string
       description: string
       keywords: string
+      siteUrl: string
     }
   }
 }
 
-const IndexLayout: React.FC = ({ children }) => (
+interface IndexLayoutProps{
+  slug?: string
+  articleTitle?: string
+}
+
+const IndexLayout: React.FC<IndexLayoutProps> = ({ articleTitle, slug, children }) => (
   <StaticQuery
     query={graphql`
       query IndexLayoutQuery {
@@ -27,19 +33,27 @@ const IndexLayout: React.FC = ({ children }) => (
           siteMetadata {
             title
             description
+            siteUrl
           }
         }
       }
     `}
     render={(data: StaticQueryProps) => (
       <LayoutRoot>
-        {console.log(data)}
+        {/* {console.log(`${data.site.siteMetadata.siteUrl}${slug}twitter-card.jpg`)} */}
+        {console.log(children)}
+
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
             { name: 'description', content: data.site.siteMetadata.description },
             { name: 'keywords', content: data.site.siteMetadata.keywords },
-            { name: 'keywords', content: data.site.siteMetadata.keywords }
+            { name: 'twitter:card', content: 'summary_large_image' },
+            { name: 'twitter:site', content: '@uechan9220'},
+            { property: 'og:url', content: `${data.site.siteMetadata.siteUrl}${slug}` },
+            { property: 'og:title', content: articleTitle },
+            { property: 'og:description', content: data.site.siteMetadata.description },
+            // { property: 'og:image', content: '画像のURL' }
           ]}
         />
         <Header title={data.site.siteMetadata.title} />

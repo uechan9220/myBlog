@@ -31,6 +31,9 @@ interface PageTemplateProps {
           }
         }
       }
+      fields: {
+        slug: string
+      }
     }
     allMarkdownRemark: {
       edges: {
@@ -151,9 +154,10 @@ const Container = styled.div`
 const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
   let footerPost = data.allMarkdownRemark
   let post = data.markdownRemark
+  console.log(data.markdownRemark.fields.slug)
   let featuredImgFixed = post.frontmatter.featuredImage.childImageSharp.fixed
   return (
-    <IndexLayout>
+    <IndexLayout articleTitle={data.markdownRemark.frontmatter.title} slug={data.markdownRemark.fields.slug}>
       <Page>
         <Container>
           <MainTitleContainer>
@@ -198,6 +202,9 @@ export const query = graphql`
             }
           }
         }
+      }
+      fields {
+        slug
       }
     }
     allMarkdownRemark(limit: 4, sort: { fields: [frontmatter___date], order: DESC }) {
