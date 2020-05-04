@@ -28,6 +28,8 @@ const CenterContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  max-width: 10rem;
+  max-height: 15rem;
 `
 
 const ImageContainer = styled.div`

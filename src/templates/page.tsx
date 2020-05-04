@@ -63,6 +63,9 @@ const ImageContainer = styled.div`
   max-height: 20rem;
   min-width: 20rem;
   min-height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const TitleContainer = styled.div`
