@@ -28,6 +28,7 @@ interface PageTemplateProps {
         featuredImage: {
           childImageSharp: {
             fixed: any
+            src: any
           }
         }
       }
@@ -157,7 +158,11 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
   console.log(data.markdownRemark.fields.slug)
   let featuredImgFixed = post.frontmatter.featuredImage.childImageSharp.fixed
   return (
-    <IndexLayout articleTitle={data.markdownRemark.frontmatter.title} slug={data.markdownRemark.fields.slug}>
+    <IndexLayout
+      articleImage={data.markdownRemark.frontmatter.featuredImage.childImageSharp.src}
+      articleTitle={data.markdownRemark.frontmatter.title}
+      slug={data.markdownRemark.fields.slug}
+    >
       <Page>
         <Container>
           <MainTitleContainer>
@@ -199,6 +204,9 @@ export const query = graphql`
           childImageSharp {
             fixed(width: 336) {
               ...GatsbyImageSharpFixed
+            }
+            resize(width: 900, quality: 90) {
+              src
             }
           }
         }

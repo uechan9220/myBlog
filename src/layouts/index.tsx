@@ -20,12 +20,13 @@ interface StaticQueryProps {
   }
 }
 
-interface IndexLayoutProps{
+interface IndexLayoutProps {
   slug?: string
   articleTitle?: string
+  articleImage?: string
 }
 
-const IndexLayout: React.FC<IndexLayoutProps> = ({ articleTitle, slug, children }) => (
+const IndexLayout: React.FC<IndexLayoutProps> = ({ articleTitle, articleImage, slug, children }) => (
   <StaticQuery
     query={graphql`
       query IndexLayoutQuery {
@@ -53,7 +54,7 @@ const IndexLayout: React.FC<IndexLayoutProps> = ({ articleTitle, slug, children 
             { property: 'og:url', content: `${data.site.siteMetadata.siteUrl}${slug}` },
             { property: 'og:title', content: articleTitle },
             { property: 'og:description', content: data.site.siteMetadata.description },
-            { property: 'og:image', content: 'https://pbs.twimg.com/profile_images/1230573017882718208/fsGvUR8k_400x400.jpg' }
+            { property: 'og:image', content: `${data.site.siteMetadata.siteUrl}${articleImage}` }
           ]}
         />
         <Header title={data.site.siteMetadata.title} />
