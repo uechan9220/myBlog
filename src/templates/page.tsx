@@ -28,7 +28,9 @@ interface PageTemplateProps {
         featuredImage: {
           childImageSharp: {
             fixed: any
-            src: any
+            resize: {
+              src: string
+            }
           }
         }
       }
@@ -159,7 +161,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
   let featuredImgFixed = post.frontmatter.featuredImage.childImageSharp.fixed
   return (
     <IndexLayout
-      articleImage={data.markdownRemark.frontmatter.featuredImage.childImageSharp.src}
+      articleImage={data.markdownRemark.frontmatter.featuredImage.childImageSharp.resize.src}
       articleTitle={data.markdownRemark.frontmatter.title}
       slug={data.markdownRemark.fields.slug}
     >
