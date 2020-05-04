@@ -49,7 +49,7 @@ const IndexLayout: React.FC<IndexLayoutProps> = ({ articleTitle, articleImage, s
           meta={[
             { name: 'description', content: data.site.siteMetadata.description },
             { name: 'keywords', content: data.site.siteMetadata.keywords },
-            { name: 'twitter:card', content: 'summary_large_image' },
+            { name: 'twitter:card', content: 'summary' },
             { name: 'twitter:site', content: '@uechan9220' },
             { property: 'og:url', content: `${data.site.siteMetadata.siteUrl}${slug}` },
             { property: 'og:title', content: articleTitle },
