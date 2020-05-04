@@ -49,11 +49,11 @@ const IndexLayout: React.FC<IndexLayoutProps> = ({ articleTitle, slug, children 
             { name: 'description', content: data.site.siteMetadata.description },
             { name: 'keywords', content: data.site.siteMetadata.keywords },
             { name: 'twitter:card', content: 'summary_large_image' },
-            { name: 'twitter:site', content: '@uechan9220'},
+            { name: 'twitter:site', content: '@uechan9220' },
             { property: 'og:url', content: `${data.site.siteMetadata.siteUrl}${slug}` },
             { property: 'og:title', content: articleTitle },
             { property: 'og:description', content: data.site.siteMetadata.description },
-            // { property: 'og:image', content: '画像のURL' }
+            { property: 'og:image', content: 'https://pbs.twimg.com/profile_images/1230573017882718208/fsGvUR8k_400x400.jpg' }
           ]}
         />
         <Header title={data.site.siteMetadata.title} />
