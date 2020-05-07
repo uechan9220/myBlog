@@ -16,6 +16,9 @@ interface StaticQueryProps {
       description: string
       keywords: string
       siteUrl: string
+      author: {
+        image: string
+      }
     }
   }
 }
@@ -35,6 +38,9 @@ const IndexLayout: React.FC<IndexLayoutProps> = ({ articleTitle, articleImage, s
             title
             description
             siteUrl
+            author{
+              image
+            }
           }
         }
       }
@@ -51,10 +57,10 @@ const IndexLayout: React.FC<IndexLayoutProps> = ({ articleTitle, articleImage, s
             { name: 'keywords', content: data.site.siteMetadata.keywords },
             { name: 'twitter:card', content: 'summary' },
             { name: 'twitter:site', content: '@uechan9220' },
-            { property: 'og:url', content: `${data.site.siteMetadata.siteUrl}${slug}` },
-            { property: 'og:title', content: articleTitle },
+            { property: 'og:url', content: `${data.site.siteMetadata.siteUrl}${slug}` || data.site.siteMetadata.siteUrl },
+            { property: 'og:title', content: articleTitle || data.site.siteMetadata.title },
             { property: 'og:description', content: data.site.siteMetadata.description },
-            { property: 'og:image', content: `${data.site.siteMetadata.siteUrl}${articleImage}` }
+            { property: 'og:image', content: `${data.site.siteMetadata.siteUrl}${articleImage}` || data.site.siteMetadata.author.image}
           ]}
         />
         <Header title={data.site.siteMetadata.title} />

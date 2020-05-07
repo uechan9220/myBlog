@@ -9,7 +9,8 @@ module.exports = {
     author: {
       name: 'Kazuya Uejima',
       url: 'https://twitter.com/uechan9220',
-      email: 'k.uejima0922@gmail.com'
+      email: 'k.uejima0922@gmail.com',
+      image: 'https://pbs.twimg.com/profile_images/1230573017882718208/fsGvUR8k_400x400.jpg'
     }
   },
   plugins: [
