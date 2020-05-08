@@ -6,6 +6,7 @@ module.exports = {
     description: 'moke is tech blog',
     keywords: 'TypeScript, Javascript, FrontEnd, Blog, techBlog',
     siteUrl: 'https://blog.moke.dev',
+
     author: {
       name: 'Kazuya Uejima',
       url: 'https://twitter.com/uechan9220',
@@ -14,6 +15,18 @@ module.exports = {
     }
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Tech Blog`,
+        short_name: `Tech Blog`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/images/favicon.png`
+      }
+    },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
