@@ -38,6 +38,7 @@ const IndexLayout: React.FC<IndexLayoutProps> = ({ articleTitle, articleImage, s
             title
             description
             siteUrl
+            keywords
             author {
               image
             }
