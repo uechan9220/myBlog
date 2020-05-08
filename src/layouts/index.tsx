@@ -38,7 +38,7 @@ const IndexLayout: React.FC<IndexLayoutProps> = ({ articleTitle, articleImage, s
             title
             description
             siteUrl
-            author{
+            author {
               image
             }
           }
@@ -55,12 +55,13 @@ const IndexLayout: React.FC<IndexLayoutProps> = ({ articleTitle, articleImage, s
           meta={[
             { name: 'description', content: data.site.siteMetadata.description },
             { name: 'keywords', content: data.site.siteMetadata.keywords },
+            { property: 'og:type', content: 'article' },
             { name: 'twitter:card', content: 'summary' },
             { name: 'twitter:site', content: '@uechan9220' },
             { property: 'og:url', content: `${data.site.siteMetadata.siteUrl}${slug}` || data.site.siteMetadata.siteUrl },
             { property: 'og:title', content: articleTitle || data.site.siteMetadata.title },
             { property: 'og:description', content: data.site.siteMetadata.description },
-            { property: 'og:image', content: `${data.site.siteMetadata.siteUrl}${articleImage}` || data.site.siteMetadata.author.image}
+            { property: 'og:image', content: `${data.site.siteMetadata.siteUrl}${articleImage}` || data.site.siteMetadata.author.image }
           ]}
         />
         <Header title={data.site.siteMetadata.title} />
