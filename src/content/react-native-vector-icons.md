@@ -1,11 +1,13 @@
 ---
 layout: page
-title: 'react-native-vector-icons実装方法'
+title: 'react-native-vector-iconsでReactNavigationのbottom-tabsにアイコンを入れみた結果wwwwwwwwwww'
 date: '2020-05-22'
 featuredImage: ../images/react-navigation.png
 ---
 
 # あいさつ
+
+タイトルは困ってる人にみて欲しくて一生懸命考えて付けました。(すみません。)
 
 今回はReactNativeで `react-navigation/bottom-tabs` を使ってアプリを作っている時にアイコンの実装で `react-native-vector-icons` を使用しているのですが公式Documentのやり方をそのままやると出来なかったので(もしかしたら見落としてるかも。。。)その際の対策等を伝えればと思います。
 
