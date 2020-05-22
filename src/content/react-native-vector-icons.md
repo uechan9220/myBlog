@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 'react-native-vector-iconsでReactNavigationのbottom-tabsにアイコンを入れみた結果wwwwwwwwwww'
+title: 'ReactNavigationのbottom-tabsにvector-iconsでアイコン入れみた結果wwwwwwwwwww'
 date: '2020-05-22'
 featuredImage: ../images/react-navigation.png
 ---
