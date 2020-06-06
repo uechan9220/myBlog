@@ -46,8 +46,22 @@ const Container = styled.div`
   @media screen and (max-width: 416px) {
     justify-content: center;
   }
+  @media screen and (max-width: 1055px) {
+    justify-content: space-around;
+  }
   justify-content: space-between;
   padding: 0 1.5rem;
+  &::after {
+    content: '';
+    display: block;
+    width: 21rem;
+  }
+  &::before {
+    content: '';
+    display: block;
+    width: 23%;
+    order: 1;
+  }
 `
 
 const Card = styled.div`
