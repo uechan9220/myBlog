@@ -2,8 +2,9 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'Tech Blog',
-    description: 'moke is tech blog',
+    title: `Moke's Tech Blog`,
+    description:
+      'アウトプットを出来る環境をと思って作ったTech Blogになります。自分がやっていて詰まったところや、解決策等を主に記事にして書いていく予定です。',
     keywords: 'TypeScript, Javascript, FrontEnd, Blog, techBlog',
     siteUrl: 'https://blog.moke.dev',
 
@@ -18,7 +19,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Tech Blog`,
+        name: `Moke's Tech Blog`,
         short_name: `Tech Blog`,
         start_url: `/`,
         background_color: `#663399`,
