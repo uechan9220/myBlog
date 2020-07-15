@@ -2,7 +2,7 @@
 layout: page
 title: 'ArchLinuxでLineを使えるように！'
 date: '2017-07-09'
-featuredImage: ../images/deno.png
+featuredImage: ../images/archlinux.png
 ---
 
 #### はてなブログの記事を移行しました

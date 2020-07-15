@@ -152,6 +152,7 @@ const MainContent = styled.div`
 
 const Container = styled.div`
   background-color: ${colors.white};
+  padding: 1rem 0;
 `
 
 const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
