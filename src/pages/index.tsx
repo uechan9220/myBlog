@@ -41,7 +41,9 @@ const ImageContainer = styled.div`
 `
 
 const Container = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-rows: 40rem 40rem;
+  grid-template-columns: repeat(auto-fill, 21rem);
   flex-wrap: wrap;
   @media screen and (max-width: 416px) {
     justify-content: center;
@@ -51,17 +53,6 @@ const Container = styled.div`
   }
   justify-content: space-between;
   padding: 0 1.5rem;
-  &::after {
-    content: '';
-    display: block;
-    width: 21rem;
-  }
-  &::before {
-    content: '';
-    display: block;
-    width: 23%;
-    order: 1;
-  }
 `
 
 const Card = styled.div`
