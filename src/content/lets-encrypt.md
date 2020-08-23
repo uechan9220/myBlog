@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Let's Encryptをcrontabで自動化した時に実行されない時の対処法"
+title: "Let's Encryptをcrontabで自動更新した時に実行されない時の対処法"
 date: '2018-08-18'
 featuredImage: ../images/le-logo-standard.png
 ---
@@ -20,7 +20,7 @@ Qiita の方は[こちら](https://qiita.com/MokeeeMokeee/items/3c8662b04695c823
 Apache/2.4.33
 aws-cli/1.14.8 Python/2.7.14 Linux/4.14.42-61.37.amzn2.x86_64 botocore/1.8.12
 
-## crontab を使用した自動化
+## crontab を使用した自動更新
 
 ```bash:title=terminal
 # vim /etc/cron.d/letsencrypt
@@ -34,7 +34,7 @@ aws-cli/1.14.8 Python/2.7.14 Linux/4.14.42-61.37.amzn2.x86_64 botocore/1.8.12
 詳しいことは[Let's Encrypt](https://letsencrypt.jp/)の方を参照してください。
 
 これで上手くいけばなんも心配はないのですが。
-ここからは Let's Encrypt を自動化しようとした時に見るべき項目を書いていこうと思います
+ここからは Let's Encrypt を自動更新しようとした時に見るべき項目を書いていこうと思います
 
 ## トラブルシューティング
 
